@@ -7,10 +7,12 @@ license = "MIT"
 readme = "README.md"
 packages = [{include = "pin_poetry_dependencies"}]
 
+[tool.poetry.scripts]
+pin_poetry_dependencies = "pin_poetry_dependencies:main"
+
 [tool.poetry.dependencies]
 python = ">=3.7"
 toml = "0.10.2"
-
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.2.1"
