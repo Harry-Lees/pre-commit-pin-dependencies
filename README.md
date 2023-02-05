@@ -2,6 +2,17 @@
 
 A pre-commit hook to ensure Poetry dependencies are pinned.
 
+## Example
+
+The following pyproject.toml will raise an error as the Python dependency is not pinned.
+
+```toml
+# pyproject.toml
+[tool.poetry.dependencies]
+python = ">=3.7"
+toml = "0.10.2"
+```
+
 ## Motivation
 
 When writing application code, it is important to ensure dependencies are pinned
