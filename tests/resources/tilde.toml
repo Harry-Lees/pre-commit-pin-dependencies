@@ -1,0 +1,4 @@
+[tool.poetry.dependencies]
+python = "3.7"
+toml = "~0.10.2"
+pytest = "7.2.1"

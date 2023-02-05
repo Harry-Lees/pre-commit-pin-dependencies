@@ -44,10 +44,11 @@ def main(argv: Sequence[str] | None = None) -> int:
             with open(filename, "r") as f:
                 pyproject = toml.load(f)
                 for dep, version in iter_dependencies(pyproject):
-                    if version.startswith(("^", "~")) or "*" in version:
+                    if version.startswith(("^", "~", ">", "<")) or "*" in version:
                         failed.append(f"{filename}: {dep} {version}")
         except Exception as error:
             print(f"An unexpected error occurred while parsing {filename}: {error}")
+            return 1
     if len(failed) > 0:
         print("The following dependencies are not pinned:")
         print(*failed, sep="\n")
