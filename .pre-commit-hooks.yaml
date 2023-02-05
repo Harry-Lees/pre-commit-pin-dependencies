@@ -1,7 +1,7 @@
 - id: poetry-dependencies-pinned
   name: Poetry dependencies pinned
   description: Ensure all poetry dependencies are pinned to exact versions
-  entry: pin_poetry_dependencies.py
+  entry: pin_poetry_dependencies
   language: python
   files: pyproject.toml
   additional_dependencies: [toml]
