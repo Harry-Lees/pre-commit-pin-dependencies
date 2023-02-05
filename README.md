@@ -2,6 +2,15 @@
 
 A pre-commit hook to ensure Poetry dependencies are pinned.
 
+## Installation
+
+```yaml
+- repo: https://github.com/Harry-Lees/pre-commit-pin-dependencies
+  rev: main  # or specific git tag
+  hooks:
+    - id: poetry-dependencies-pinned
+```
+
 ## Example
 
 The following pyproject.toml will raise an error as the Python dependency is not pinned.
