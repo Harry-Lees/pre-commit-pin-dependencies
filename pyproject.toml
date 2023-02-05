@@ -5,7 +5,7 @@ description = "A pre-commit hook to enforce pinning poetry dependencies"
 authors = ["Harry Lees <harry.lees@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-packages = [{include = "pre_commit_pin_dependencies"}]
+packages = [{include = "pin_poetry_dependencies.py"}]
 
 [tool.poetry.dependencies]
 python = ">=3.7"
