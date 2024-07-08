@@ -16,6 +16,7 @@ def path_exists(obj: Mapping[Any, Any], path: Sequence[str]) -> bool:
         return path_exists(obj[path[0]], path[1:])
     return False
 
+
 def iter_dependencies(obj: Mapping[Any, Any]):
     """
     Iterate over all poetry dependencies in a nested mapping.
@@ -32,6 +33,7 @@ def iter_dependencies(obj: Mapping[Any, Any]):
                 yield dep, version["version"]
         else:
             raise ValueError(f"Unexpected version type: {type(version)}")
+
 
 def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
@@ -54,6 +56,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         print(*failed, sep="\n")
         return 1
     return 0
+
 
 if __name__ == "__main__":
     raise SystemExit(main())
