@@ -12,7 +12,7 @@ pin_poetry_dependencies = "pin_poetry_dependencies:main"
 
 [tool.poetry.dependencies]
 python = ">=3.8"
-toml = "0.10.2"
+toml = ">=0.10.2"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.2.1"
