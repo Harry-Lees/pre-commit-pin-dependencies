@@ -18,6 +18,7 @@ toml = "0.10.2"
 pytest = "^7.2.1"
 ruff = "^0.5.1"
 mypy = "^1.10.1"
+types-toml = "^0.10.8.20240310"
 
 [build-system]
 requires = ["poetry-core"]

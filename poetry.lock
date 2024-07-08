@@ -211,6 +211,17 @@ files = [
 ]
 
 [[package]]
+name = "types-toml"
+version = "0.10.8.20240310"
+description = "Typing stubs for toml"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "types-toml-0.10.8.20240310.tar.gz", hash = "sha256:3d41501302972436a6b8b239c850b26689657e25281b48ff0ec06345b8830331"},
+    {file = "types_toml-0.10.8.20240310-py3-none-any.whl", hash = "sha256:627b47775d25fa29977d9c70dc0cbab3f314f32c8d8d0c012f2ef5de7aaec05d"},
+]
+
+[[package]]
 name = "typing-extensions"
 version = "4.4.0"
 description = "Backported and Experimental Type Hints for Python 3.7+"
@@ -224,4 +235,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8"
-content-hash = "7fd9c9f8c3c5194ad4c7f48eab768ec01308c12138e2117a9896b309d3abe989"
+content-hash = "a56c6896c2805455940f6baf5afd08d31154ba6d661168886dc83c4f98f0f520"
