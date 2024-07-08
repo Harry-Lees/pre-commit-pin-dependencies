@@ -1,7 +1,5 @@
 import argparse
-from collections.abc import Mapping
-from collections.abc import Sequence
-from typing import Any
+from typing import Any, Mapping, Sequence, Union
 
 import toml
 
@@ -35,7 +33,7 @@ def iter_dependencies(obj: Mapping[Any, Any]):
             raise ValueError(f"Unexpected version type: {type(version)}")
 
 
-def main(argv: Sequence[str] | None = None) -> int:
+def main(argv: Union[Sequence[str], None] = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("filenames", nargs="+")
     args = parser.parse_args(argv)

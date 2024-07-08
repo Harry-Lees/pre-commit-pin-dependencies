@@ -34,3 +34,31 @@ jobs:
         run: poetry run ruff format --check .
       - name: mypy
         run: poetry run mypy .
+  tests:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    strategy:
+      matrix:
+        python-version:
+          - "3.8"
+          - "3.9"
+          - "3.10"
+          - "3.11"
+      fail-fast: false
+    steps:
+      - name: checkout-repo
+        uses: actions/checkout@v3
+      - name: install-poetry
+        run: pipx install poetry
+      - name: setup-python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: poetry
+      - name: install-dependencies
+        run: poetry install --no-interaction
+      - name: pytest
+        run: |
+          poetry run coverage run -m pytest . -vv
+          poetry run coverage report -m --skip-covered
