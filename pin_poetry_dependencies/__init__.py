@@ -1,7 +1,5 @@
 import argparse
-from collections.abc import Mapping
-from collections.abc import Sequence
-from typing import Any
+from typing import Any, Mapping, Sequence
 
 import toml
 
