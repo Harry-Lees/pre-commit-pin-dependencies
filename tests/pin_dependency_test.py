@@ -22,3 +22,20 @@ def test_pinned_dependencies() -> None:
 )
 def test_unpinned_dependencies(filename) -> None:
     assert pin_poetry_dependencies.main([filename]) == 1
+
+
+def test_unpinned_python() -> None:
+    assert pin_poetry_dependencies.main(["tests/resources/unpinned_python.toml"]) == 1
+    assert (
+        pin_poetry_dependencies.main(
+            ["--allow-unpinned-python", "tests/resources/unpinned_python.toml"]
+        )
+        == 0
+    )
+    # Non-python dependencies should still be checked.
+    assert (
+        pin_poetry_dependencies.main(
+            ["--allow-unpinned-python", "tests/resources/tilde.toml"]
+        )
+        == 1
+    )

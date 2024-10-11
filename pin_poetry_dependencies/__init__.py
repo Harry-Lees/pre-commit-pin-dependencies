@@ -36,6 +36,12 @@ def iter_dependencies(obj: Mapping[Any, Any]):
 def main(argv: Union[Sequence[str], None] = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("filenames", nargs="+")
+    parser.add_argument(
+        "--allow-unpinned-python",
+        default=False,
+        action="store_true",
+        help="Allow the `python` dependency to be unpinned.",
+        )
     args = parser.parse_args(argv)
 
     failed = []
@@ -44,6 +50,8 @@ def main(argv: Union[Sequence[str], None] = None) -> int:
             with open(filename, "r") as f:
                 pyproject = toml.load(f)
                 for dep, version in iter_dependencies(pyproject):
+                    if dep == "python" and args.allow_unpinned_python:
+                        continue
                     if version.startswith(("^", "~", ">", "<")) or "*" in version:
                         failed.append(f"{filename}: {dep} {version}")
         except Exception as error:
