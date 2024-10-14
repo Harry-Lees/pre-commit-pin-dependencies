@@ -26,6 +26,10 @@ def iter_dependencies(obj: Mapping[Any, Any]):
     for dep, version in obj["tool"]["poetry"]["dependencies"].items():
         if isinstance(version, str):
             yield dep, version
+        elif isinstance(version, list):
+            for version_mapping in version:
+                if "version" in version_mapping:
+                    yield dep, version_mapping["version"]
         elif isinstance(version, Mapping):
             if "version" in version:
                 yield dep, version["version"]

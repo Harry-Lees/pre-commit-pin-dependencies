@@ -10,6 +10,10 @@ def test_iter_dependencies() -> None:
                 "dependencies": {
                     "requests": "^2.25.1",
                     "toml": {"version": "^0.10.2"},
+                    "torch": [
+                        {"version": "^2.2.2"},
+                        {"version": "^2.2.2+cpu"},
+                    ],
                 }
             }
         }
