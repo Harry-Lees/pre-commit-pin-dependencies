@@ -21,6 +21,8 @@ def test_iter_dependencies() -> None:
     assert list(dependencies) == [
         ("requests", "^2.25.1"),
         ("toml", "^0.10.2"),
+        ("torch", "^2.2.2"),
+        ("torch", "^2.2.2+cpu"),
     ]
 
 def test_iter_dependencies_no_dependencies() -> None:
